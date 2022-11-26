@@ -9,9 +9,13 @@ A powerfull Minecraft Bedrock Edition server downloader for termux (Linux) conso
 **FOLLOW THE STEPS BENEATH**
 
 1. **For Termux User**
-    * Download latest repository: `wget __$PASTE__`
+    * Download latest repository: `wget https://github.com/EnteFanPHP/Qube/releases/latest/download/qube.zip`
     * Unzip the file: `unzip qube.zip`
     * Download all required commands see [requirements](#requirements)
+    * Enter unziped `qube` file
+    * Type `php qube_setup.php`
+    * Follow the steps in the console
+    * Have fun!
     
     
 # Requirements
