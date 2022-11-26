@@ -14,7 +14,7 @@ A powerfull Minecraft Bedrock Edition server downloader for termux (Linux) conso
     * Download all required commands see [requirements](#requirements)
     
     
-# Requiremnts
+# Requirements
 
 1. **Commands**:
     | Commands | Download |
