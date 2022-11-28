@@ -1,7 +1,18 @@
 <?php
 
 abstract class Downloader {
+    public const LATEST_PHP_BINARY = "https://github.com/DaisukeDaisuke/AndroidPHP/releases/latest/download/php"; //Special thanks to @DaisukeDaisuke
     abstract public function process():void;
+    public function deleteRecursive($foldername) {
+        if (is_dir($foldername)) {
+            foreach (new RecursiveIteratorIterator(new RecursiveDirectoryIterator($foldername)) as $filename) {
+                if ($filename->isDir()) continue;
+                unlink($filename);
+            }
+            rmdir($foldername);
+        }
+    }
+
 }
 
 class PocketMineMP extends Downloader {
@@ -9,8 +20,6 @@ class PocketMineMP extends Downloader {
     public const POCKETMINE_GITHUB = "https://github.com/pmmp/PocketMine-MP/";
 
     public const LATEST_RELEAS_PHAR = "https://github.com/pmmp/PocketMine-MP/releases/latest/download/PocketMine-MP.phar";
-
-    public const LATEST_PHP_BINARY = "https://github.com/DaisukeDaisuke/AndroidPHP/releases/latest/download/php"; //Special thanks to @DaisukeDaisuke
 
     public function process() : void {
         shell_exec("git clone " . self::POCKETMINE_GITHUB);
@@ -27,14 +36,33 @@ class PocketMineMP extends Downloader {
         shell_exec("mv PocketMine-MP ../");
         $foldername = substr(__DIR__, strrpos(__DIR__, '/') + 1);
         chdir("../");
-        if (is_dir($foldername)) {
-            foreach (new RecursiveIteratorIterator(new RecursiveDirectoryIterator($foldername)) as $filename) {
-                if ($filename->isDir()) continue;
-                unlink($filename);
-            }
-            rmdir($foldername);
-        }
+        $this->deleteRecursive($foldername);
     }
+}
+
+class Altay extends Downloader {
+    public const ALTAY_GITHUB = "https://github.com/Benedikt05/BetterAltay";
+
+    public const LATEST_RELEAS_PHAR = "https://github.com/Benedikt05/BetterAltay/releases/latest/download/BetterAltay.phar";
+    
+    public function process() : void {
+        shell_exec("git clone " . self::ALTAY_GITHUB);
+        chdir("BetterAltay");
+        shell_exec("chmod +x start.sh");
+        // PHAR
+        shell_exec("wget " . self::LATEST_RELEAS_PHAR);
+        // PHP BINARY
+        shell_exec("mkdir -p bin/php7/bin");
+        chdir("bin/php7/bin");
+        shell_exec("wget ".self::LATEST_PHP_BINARY);
+        shell_exec("chmod +x php");
+        chdir("../../../../");
+        shell_exec("mv BetterAltay ../");
+        $foldername = substr(__DIR__, strrpos(__DIR__, '/') + 1);
+        chdir("../");
+        $this->deleteRecursive($foldername);
+    }
+    
 }
 
 function which_qube() {
@@ -45,7 +73,7 @@ function which_qube() {
     }
     $log->log($lang->out("question1_which_software"));
     $ss = readline($log->log($lang->out("answer1_question1"), "normal", true));
-    if (!((1 <= $ss) && ($ss <= 1))) {
+    if (!((1 <= $ss) && ($ss <= 2))) {
         $log->log($lang->out("unkown_server_software"), "FAILURE");
         delay(1);
         $log->log($lang->out("closing_file"));
@@ -61,7 +89,9 @@ function which_qube() {
             break;
 
         case 2:
-            // $log->log($lang->out("selected_nukkit"));
+            $log->log($lang->out("selected_altay"));
+            $altay = new Altay();
+            $altay->process();
             break;
     }
 }
