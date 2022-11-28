@@ -3,6 +3,7 @@ A powerfull Minecraft Bedrock Edition server downloader for termux (Linux) conso
 
 # Available Software's
 - PocketMine-MP (Latest)
+- Altay (Latest)
 
 # Setup
 
