@@ -4,6 +4,7 @@ A powerfull Minecraft Bedrock Edition server downloader for termux (Linux) conso
 # Available Software's
 - PocketMine-MP (Latest)
 - Altay (Latest)
+- Nukkit (Latest) [read [Nukkit](#nukkit)]
 
 # Setup
 
@@ -28,7 +29,12 @@ A powerfull Minecraft Bedrock Edition server downloader for termux (Linux) conso
     | php | pkg install php  |
     | git | pkg install git  |
     | mkdir | --- |
+    | java | wget https://raw.githubusercontent.com/MasterDevX/java/master/installjava && bash installjava |
     
 2. **Files**:
 > All files should be automatically included in the downloaded file
 * Language file: [Download](Link)
+
+# Nukkit
+> For this server software you need to download the Java package [Requirements](#requirements) <br>
+> After downloading Nukkit please run as a __Termux__ user the termux-chroot command without running this command, the server wont start!
