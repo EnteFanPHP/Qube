@@ -1,3 +1,5 @@
+> This software is under development. Bugs can happen!
+
 # Qube
 A powerfull Minecraft Bedrock Edition server downloader for termux (Linux) console
 
