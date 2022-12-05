@@ -35,7 +35,7 @@ A powerfull Minecraft Bedrock Edition server downloader for termux (Linux) conso
     
 2. **Files**:
 > All files should be automatically included in the downloaded file
-* Language file: [Download](Link)
+* Language file: [Download](https://github.com/Qube001/Qube-language-file/releases/latest)
 
 # Nukkit
 > For this server software you need to download the Java package [Requirements](#requirements) <br>
