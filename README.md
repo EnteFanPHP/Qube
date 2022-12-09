@@ -1,3 +1,4 @@
+![GitHub release (latest by date)](https://img.shields.io/github/downloads/EnteFanPHP/Qube/latest/total?color=green)
 > This software is under development. Bugs can happen!
 
 # Qube
