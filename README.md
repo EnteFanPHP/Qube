@@ -1,5 +1,3 @@
-![](20221212_184912.png)
-
 ![GitHub release (latest by date)](https://img.shields.io/github/downloads/EnteFanPHP/Qube/latest/total?color=green)
 > This software is under development. Bugs can happen!
 
